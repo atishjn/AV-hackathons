@@ -35,12 +35,5 @@ pred <- predict(fitg,test[,c("hour","month","year")])
 prediction <- data.frame(Datetime=test$Datetime,Count=pred)
 write.csv(prediction,file="prediction11.csv",row.names=FALSE)
 
-library(gbm)
-fitg <- gbm(Count~hour+month+year,data=train[17001:18244,],n.trees=10,shrinkage=0.001,
-            bag.fraction=0.5,cv.folds=4,keep.data=TRUE)
-?gbm()
-fit1 <- gbm( Crop_Damage ~Estimated_Insects_Count + Crop_Type + Soil_Type + Pesticide_Use_Category
-             +Number_Doses_Week + Number_Weeks_Used +Number_Weeks_Quit+Season,
-             data=learning,distribution="multinomial",n.trees=3000,shrinkage=0.001,
-             bag.fraction=0.5,cv.folds=4,keep.data=TRUE )
+
 
